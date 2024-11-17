@@ -141,6 +141,7 @@
             top: 0;
             z-index: 1000;
             transition: background-color 0.3s ease;
+            height: 70px;
         }
 
         nav.scrolled {
@@ -152,7 +153,38 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            height: 100%;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            height: 100%;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            height: 100%;
+            padding: 0 0.5rem;
+        }
+
+        .nav-links .cta-button {
+            height: auto;
+            padding: 0.75rem 1.5rem;
         }
 
         .logo {
@@ -161,22 +193,6 @@
             background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
         }
 
         .cta-button {
@@ -301,40 +317,92 @@
         footer {
             background: rgba(0, 0, 0, 0.5);
             padding: 2rem 0;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-branding {
             text-align: center;
         }
 
-        .footer-links {
-            display: flex;
+        .footer-branding .logo-container {
             justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .footer-links a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .footer-branding .logo-cube {
+            width: 30px;
+            height: 30px;
+        }
+
+        .footer-branding .logo-text {
+            font-size: 1.5rem;
+        }
+
+        .tagline {
             color: var(--text);
+            opacity: 0.8;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: var(--text);
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .legal-links a {
+            color: var(--text);
+            opacity: 0.8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .footer-links a:hover {
+        .legal-links a:hover {
             color: var(--primary);
+            opacity: 1;
         }
 
-        .footer-links i {
-            font-size: 1.25rem;
+        .separator {
+            opacity: 0.3;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            footer {
+                padding: 1.5rem 0;
             }
 
-            .nav-links {
-                display: none;
+            .footer-content {
+                gap: 1.5rem;
+            }
+
+            .legal-links {
+                gap: 0.75rem;
             }
         }
 
@@ -683,6 +751,81 @@
         .work-card:hover .work-image video {
             transform: scale(1.05);
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            height: 100%;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                height: auto;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                height: auto;
+                width: 100%;
+                justify-content: center;
+                padding: 0.75rem;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .social-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -713,12 +856,15 @@
                 </div>
                 <div class="logo-text">SaaS Crafters</div>
             </div>
+            <button class="mobile-menu-button">
+                <i class="ph ph-list"></i>
+            </button>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#work">Work</a>
                 <a href="#process">Process</a>
                 <a href="#about">About</a>
-                <a href="#contact" class="cta-button">Get Started</a>
+                <a href="#contact" class="cta-button">Let's Ship 🚀</a>
             </div>
         </div>
     </nav>
@@ -727,7 +873,7 @@
         <div class="container hero-content">
             <h1>Let's Build Your SaaS Product Together</h1>
             <p>Hi! I'm a SaaS developer with 4+ years of experience. I'm offering a 50% discount to my first 3 clients. Simple pricing, no hidden costs!</p>
-            <a href="#contact" class="cta-button">Get 50% Off - Only 3 Spots Left</a>
+            <a href="#contact" class="cta-button">Get 50% Off - Only 3 Spots Left 🚀</a>
         </div>
     </section>
 
@@ -922,6 +1068,23 @@
                     <div class="founder-details">
                         <h3>Saurav Sharma</h3>
                         <span class="founder-title">Full-Stack Django Developer</span>
+                        <div class="social-links">
+                            <a href="mailto:selftaughtdev@proton.me" title="Email">
+                                <i class="ph ph-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                                <i class="ph ph-linkedin-logo"></i>
+                            </a>
+                            <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                                <i class="ph ph-twitter-logo"></i>
+                            </a>
+                            <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer" title="Blog">
+                                <i class="ph ph-newspaper"></i>
+                            </a>
+                            <a href="https://www.instagram.com/saurav_sharma_0205/" target="_blank" rel="noopener noreferrer" title="Instagram">
+                                <i class="ph ph-instagram-logo"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <p>I'm a self-taught SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
@@ -962,13 +1125,40 @@
 
     <footer>
         <div class="container">
-            <div class="logo">SaaS Crafters</div>
-            <p>Building scalable SaaS solutions with precision and care.</p>
-            <div class="footer-links">
-                <a href="mailto:selftaughtdev@proton.me"><i class="ph ph-envelope"></i> Email</a>
-                <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> X (Twitter)</a>
-                <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer"><i class="ph ph-newspaper"></i> Blog</a>
+            <div class="footer-content">
+                <div class="footer-branding">
+                    <div class="logo-container">
+                        <div class="logo-cube">
+                            <div class="cube">
+                                <div class="face front"></div>
+                                <div class="face back"></div>
+                                <div class="face right"></div>
+                                <div class="face left"></div>
+                                <div class="face top"></div>
+                                <div class="face bottom"></div>
+                            </div>
+                            <div class="terminal">
+                                <div class="bracket bracket-tl"></div>
+                                <div class="bracket bracket-tr"></div>
+                                <div class="bracket bracket-bl"></div>
+                                <div class="bracket bracket-br"></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                            </div>
+                        </div>
+                        <div class="logo-text">SaaS Crafters</div>
+                    </div>
+                    <p class="tagline">Building scalable SaaS solutions with precision and care.</p>
+                </div>
+                <div class="footer-bottom">
+                    <p class="copyright">© 2024 SaaS Crafters. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="/privacy.html">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="/terms.html">Terms of Service</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -1053,5 +1243,43 @@
     async
   >
   </script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle menu icon
+            const icon = mobileMenuButton.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
+            } else {
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            }
+        });
+    </script>
 </body>
 </html>
