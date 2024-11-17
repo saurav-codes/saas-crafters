@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SaaS Crafters - Custom SaaS Development</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
             --primary: #3b82f6;
@@ -86,7 +87,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1rem 2rem;
         }
 
         .logo {
@@ -172,6 +173,9 @@
         }
 
         .feature-card, .process-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 1rem;
@@ -206,13 +210,13 @@
         .expertise-item {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .expertise-item::before {
-            content: '→';
+        .expertise-item i {
             color: var(--accent);
-            margin-right: 0.5rem;
+            font-size: 1.25rem;
         }
 
         form {
@@ -243,6 +247,9 @@
         }
 
         .footer-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
@@ -250,6 +257,10 @@
 
         .footer-links a:hover {
             color: var(--primary);
+        }
+
+        .footer-links i {
+            font-size: 1.25rem;
         }
 
         @media (max-width: 768px) {
@@ -272,6 +283,158 @@
             z-index: 1001;
             transition: width 0.05s ease-out;
         }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .expertise-item::before {
+            content: none;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .logo-cube {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #3b82f6;
+            border-radius: 4px;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .front { transform: translateZ(20px); }
+        .back { transform: translateZ(-20px) rotateY(180deg); }
+        .right { transform: translateX(20px) rotateY(90deg); }
+        .left { transform: translateX(-20px) rotateY(-90deg); }
+        .top { transform: translateY(-20px) rotateX(90deg); }
+        .bottom { transform: translateY(20px) rotateX(-90deg); }
+
+        .terminal {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10b981;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .code-line {
+            position: absolute;
+            height: 2px;
+            background: #10b981;
+            opacity: 0.8;
+            animation: type 3s infinite;
+        }
+
+        .code-line:nth-child(1) {
+            width: 60%;
+            top: 25%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .code-line:nth-child(2) {
+            width: 40%;
+            top: 45%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(3) {
+            width: 50%;
+            top: 65%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .bracket {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 2px solid #10b981;
+        }
+
+        .bracket-tl {
+            top: 3px;
+            left: 3px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .bracket-tr {
+            top: 3px;
+            right: 3px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .bracket-bl {
+            bottom: 3px;
+            left: 3px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .bracket-br {
+            bottom: 3px;
+            right: 3px;
+            border-left: none;
+            border-top: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes type {
+            0%, 100% { transform: translateX(0); opacity: 0.8; }
+            50% { transform: translateX(5px); opacity: 0.4; }
+        }
     </style>
 </head>
 <body>
@@ -280,7 +443,28 @@
 
     <nav>
         <div class="container nav-content">
-            <div class="logo">SaaS Crafters</div>
+            <div class="logo-container">
+                <div class="logo-cube">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                    <div class="terminal">
+                        <div class="bracket bracket-tl"></div>
+                        <div class="bracket bracket-tr"></div>
+                        <div class="bracket bracket-bl"></div>
+                        <div class="bracket bracket-br"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                    </div>
+                </div>
+                <div class="logo-text">SaaS Crafters</div>
+            </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#process">Process</a>
@@ -303,18 +487,22 @@
             <h2>Why Choose Us</h2>
             <div class="features-grid">
                 <div class="feature-card">
+                    <i class="ph ph-money icon"></i>
                     <h3>100% Clear Pricing</h3>
                     <p>One simple price: $997. No extra charges, no surprises. You only pay after you're happy with the product.</p>
                 </div>
                 <div class="feature-card">
+                    <i class="ph ph-stack icon"></i>
                     <h3>Battle-Tested Stack</h3>
                     <p>Built with Django & Python - the same tech that powers Instagram, Spotify, and NASA. Your product deserves nothing less.</p>
                 </div>
                 <div class="feature-card">
+                    <i class="ph ph-chart-line-up icon"></i>
                     <h3>Milestone-Based Payment</h3>
                     <p>Clear payment structure tied to project milestones. Your investment is protected as you see your product take shape.</p>
                 </div>
                 <div class="feature-card">
+                    <i class="ph ph-user-focus icon"></i>
                     <h3>Personal Attention</h3>
                     <p>I treat your project like my own business. Your success is my success.</p>
                 </div>
@@ -327,21 +515,25 @@
             <h2>How We'll Work Together</h2>
             <div class="process-grid">
                 <div class="process-card">
+                    <i class="ph ph-chats-circle icon"></i>
                     <div class="process-number">01</div>
                     <h3>Discovery Chat</h3>
                     <p>A casual 30-minute call to understand your vision and see if we're a good fit. No sales pitch, just honest discussion.</p>
                 </div>
                 <div class="process-card">
+                    <i class="ph ph-strategy icon"></i>
                     <div class="process-number">02</div>
                     <h3>Strategic Planning</h3>
                     <p>We'll map out your MVP features and create a focused plan. Clear milestones, no hidden costs.</p>
                 </div>
                 <div class="process-card">
+                    <i class="ph ph-rocket-launch icon"></i>
                     <div class="process-number">03</div>
                     <h3>Rapid Development</h3>
                     <p>2-3 weeks of focused development with daily updates and weekly demos. You'll see your product take shape.</p>
                 </div>
                 <div class="process-card">
+                    <i class="ph ph-lifebuoy icon"></i>
                     <div class="process-number">04</div>
                     <h3>Launch & Support</h3>
                     <p>One-time payment of $999 after MVP approval. Includes 2 months of bug fixes and support.</p>
@@ -357,9 +549,18 @@
                 <p>I'm Saurav, a SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
                 <p>I only work with 3 clients each month, ensuring you get my full attention and direct communication throughout the project.</p>
                 <div class="expertise">
-                    <div class="expertise-item">Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">many more</a></div>
-                    <div class="expertise-item">4+ years of specialized SaaS development experience</div>
-                    <div class="expertise-item">Direct 1-on-1 communication throughout the project</div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">many more</a>
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        4+ years of specialized SaaS development experience
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        Direct 1-on-1 communication throughout the project
+                    </div>
                 </div>
             </div>
         </div>
@@ -382,10 +583,10 @@
             <div class="logo">SaaS Crafters</div>
             <p>Building scalable SaaS solutions with precision and care.</p>
             <div class="footer-links">
-                <a href="mailto:selftaughtdev@proton.me">Email</a>
-                <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer">Twitter</a>
-                <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="mailto:selftaughtdev@proton.me"><i class="ph ph-envelope"></i> Email</a>
+                <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
+                <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer"><i class="ph ph-newspaper"></i> Blog</a>
             </div>
         </div>
     </footer>
@@ -463,5 +664,12 @@
             progressBar.style.width = `${scrolled}%`;
         });
     </script>
+    <!-- analytics -->
+    <script
+    src="https://beamanalytics.b-cdn.net/beam.min.js"
+    data-token="4d8d10b5-436d-4483-b61d-392ee0f77a3d"
+    async
+  >
+  </script>
 </body>
 </html>
