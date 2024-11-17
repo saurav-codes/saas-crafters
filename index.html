@@ -3,21 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Crafters - Custom SaaS Development</title>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <!-- Primary Meta Tags -->
+    <title>SaaS Crafters - Custom SaaS Development & MVP Solutions</title>
+    <meta name="title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <meta name="description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
+    <meta name="keywords" content="saas development, mvp development, custom software development, web application development, startup mvp, software development services, django development, python development, saas builder, tech startup, software consulting">
+    <meta name="author" content="Saurav">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saascrafter.art/">
+    <meta property="og:title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <meta property="og:description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
+    <meta property="og:image" content="https://saascrafter.art/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://saascrafter.art/">
+    <meta property="twitter:title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <meta property="twitter:description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
+    <meta property="twitter:image" content="https://saascrafter.art/assets/images/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://saascrafter.art/">
+
+    <!-- Fonts and existing styles... -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "SaaS Crafters",
+      "description": "Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack.",
+      "image": "https://saascrafter.art/assets/images/og-image.jpg",
+      "url": "https://saascrafter.art",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "997",
+        "priceCurrency": "USD"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/saurav-codes/",
+        "https://x.com/saurav__codes",
+        "https://selftaughtdev.hashnode.dev/"
+      ]
+    }
+    </script>
+
     <style>
         :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
+            --primary: #3b82f6;
+            --text: #ffffff;
+            --background: #000000;
+            --accent: #10b981;
         }
 
         * {
@@ -28,25 +87,64 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            transition: background 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
         }
 
-        /* Navigation */
         nav {
-            padding: 1.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 100;
-            background-color: rgba(15, 23, 42, 0.9);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
         }
 
@@ -54,12 +152,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -70,7 +169,7 @@
         }
 
         .nav-links a {
-            color: var(--light);
+            color: var(--text);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -81,267 +180,142 @@
         }
 
         .cta-button {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: var(--text);
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        h1, h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+        p {
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
         }
 
-        /* Features Section */
-        .features {
-            padding: 4rem 0;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .features-grid {
+        .features-grid, .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
+        .feature-card, .process-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 1rem;
-            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
         }
 
-        .feature-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .feature-card:hover, .process-card:hover {
+            transform: translateY(-5px);
         }
 
-        .feature-card h3 {
-            margin-bottom: 1rem;
+        .process-card {
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-card p {
-            color: var(--gray);
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 0;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .about-content {
-            display: grid;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .highlight {
+        .process-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            font-weight: 700;
+            opacity: 0.1;
             color: var(--primary);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
         }
 
-        .expertise {
-            margin-top: 2rem;
+        .about-content, .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .expertise-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
         .expertise-item i {
-            color: var(--primary);
+            color: var(--accent);
+            font-size: 1.25rem;
         }
 
-        /* Process Section */
-        .process {
-            padding: 6rem 0;
-        }
-
-        .process h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .process-grid {
+        form {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .process-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 1rem;
-            position: relative;
-        }
-
-        .process-number {
-            font-size: 3rem;
-            font-weight: 700;
-            opacity: 0.1;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 6rem 0;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .portfolio h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 1rem;
-        }
-
-        .portfolio-tech {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .portfolio-features {
-            margin-top: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        .portfolio-features li {
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .contact-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 3rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
+        input, textarea {
             width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 0.5rem;
-            color: var(--light);
-            font-family: inherit;
+            color: var(--text);
         }
 
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
         footer {
-            padding: 4rem 0;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-brand p {
-            color: var(--gray);
-            margin-top: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem 0;
+            text-align: center;
         }
 
         .footer-links {
             display: flex;
+            justify-content: center;
             gap: 2rem;
+            margin-top: 1rem;
         }
 
         .footer-links a {
-            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -350,31 +324,212 @@
             color: var(--primary);
         }
 
-        /* Responsive Design */
+        .footer-links i {
+            font-size: 1.25rem;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
+            h1 {
                 font-size: 2.5rem;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.05s ease-out;
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .expertise-item::before {
+            content: none;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .logo-cube {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #3b82f6;
+            border-radius: 4px;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .front { transform: translateZ(20px); }
+        .back { transform: translateZ(-20px) rotateY(180deg); }
+        .right { transform: translateX(20px) rotateY(90deg); }
+        .left { transform: translateX(-20px) rotateY(-90deg); }
+        .top { transform: translateY(-20px) rotateX(90deg); }
+        .bottom { transform: translateY(20px) rotateX(-90deg); }
+
+        .terminal {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10b981;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .code-line {
+            position: absolute;
+            height: 2px;
+            background: #10b981;
+            opacity: 0.8;
+            animation: type 3s infinite;
+        }
+
+        .code-line:nth-child(1) {
+            width: 60%;
+            top: 25%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .code-line:nth-child(2) {
+            width: 40%;
+            top: 45%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(3) {
+            width: 50%;
+            top: 65%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .bracket {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 2px solid #10b981;
+        }
+
+        .bracket-tl {
+            top: 3px;
+            left: 3px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .bracket-tr {
+            top: 3px;
+            right: 3px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .bracket-bl {
+            bottom: 3px;
+            left: 3px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .bracket-br {
+            bottom: 3px;
+            right: 3px;
+            border-left: none;
+            border-top: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes type {
+            0%, 100% { transform: translateX(0); opacity: 0.8; }
+            50% { transform: translateX(5px); opacity: 0.4; }
         }
     </style>
 </head>
 <body>
+    <div class="progress-bar"></div>
+    <div id="canvas-container"></div>
+
     <nav>
         <div class="container nav-content">
-            <div class="logo">SaaS Crafters</div>
+            <div class="logo-container">
+                <div class="logo-cube">
+                    <div class="cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                    <div class="terminal">
+                        <div class="bracket bracket-tl"></div>
+                        <div class="bracket bracket-tr"></div>
+                        <div class="bracket bracket-bl"></div>
+                        <div class="bracket bracket-br"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                    </div>
+                </div>
+                <div class="logo-text">SaaS Crafters</div>
+            </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#process">Process</a>
@@ -385,33 +540,34 @@
     </nav>
 
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Let's Build Your SaaS Product Together</h1>
             <p>Hi! I'm a SaaS developer with 4+ years of experience. I'm offering a 50% discount to my first 3 clients. Simple pricing, no hidden costs!</p>
             <a href="#contact" class="cta-button">Get 50% Off - Only 3 Spots Left</a>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <section id="features">
         <div class="container">
+            <h2>Why Choose Us</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
+                    <i class="ph ph-money icon"></i>
                     <h3>100% Clear Pricing</h3>
                     <p>One simple price: $997. No extra charges, no surprises. You only pay after you're happy with the product.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-code"></i>
+                    <i class="ph ph-stack icon"></i>
                     <h3>Battle-Tested Stack</h3>
                     <p>Built with Django & Python - the same tech that powers Instagram, Spotify, and NASA. Your product deserves nothing less.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
+                    <i class="ph ph-chart-line-up icon"></i>
                     <h3>Milestone-Based Payment</h3>
                     <p>Clear payment structure tied to project milestones. Your investment is protected as you see your product take shape.</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-heart"></i>
+                    <i class="ph ph-user-focus icon"></i>
                     <h3>Personal Attention</h3>
                     <p>I treat your project like my own business. Your success is my success.</p>
                 </div>
@@ -419,212 +575,158 @@
         </div>
     </section>
 
-    <div class="container">
-        <div style="text-align: center; margin: 2rem auto; padding: 2rem; background: rgba(99, 102, 241, 0.1); border-radius: 1rem; max-width: 800px;">
-            <i class="fas fa-star" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;"></i>
-            <h3 style="color: var(--primary); margin-bottom: 1rem;">Special Discount for First 5 Clients</h3>
-            <p style="color: var(--light); margin-bottom: 1rem;">I'm new to freelancing and want to build my portfolio. Here's my simple, no-surprise pricing:</p>
-            <p style="color: var(--primary); font-weight: 600; font-size: 1.2rem;">
-                Normal Price: $1,997<br>
-                Your Price: $997 (Save $1,000!)
-            </p>
-            <div style="margin-top: 1rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem;">
-                <p style="color: var(--light); font-size: 0.9rem; margin-bottom: 0.5rem;">What's Included in This Price:</p>
-                <ul style="color: var(--gray); text-align: left; list-style: none;">
-                    <li>✓ Complete MVP development</li>
-                    <li>✓ All integrations (payments, email, etc.)</li>
-                    <li>✓ 2 months free support</li>
-                    <li>✓ No extra or hidden costs</li>
-                </ul>
+    <section id="process">
+        <div class="container">
+            <h2>How We'll Work Together</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <i class="ph ph-chats-circle icon"></i>
+                    <div class="process-number">01</div>
+                    <h3>Discovery Chat</h3>
+                    <p>A casual 30-minute call to understand your vision and see if we're a good fit. No sales pitch, just honest discussion.</p>
+                </div>
+                <div class="process-card">
+                    <i class="ph ph-strategy icon"></i>
+                    <div class="process-number">02</div>
+                    <h3>Strategic Planning</h3>
+                    <p>We'll map out your MVP features and create a focused plan. Clear milestones, no hidden costs.</p>
+                </div>
+                <div class="process-card">
+                    <i class="ph ph-rocket-launch icon"></i>
+                    <div class="process-number">03</div>
+                    <h3>Rapid Development</h3>
+                    <p>2-3 weeks of focused development with daily updates and weekly demos. You'll see your product take shape.</p>
+                </div>
+                <div class="process-card">
+                    <i class="ph ph-lifebuoy icon"></i>
+                    <div class="process-number">04</div>
+                    <h3>Launch & Support</h3>
+                    <p>One-time payment of $999 after MVP approval. Includes 2 months of bug fixes and support.</p>
+                </div>
             </div>
-            <p style="color: var(--gray); margin-top: 1rem; font-size: 0.9rem;">3 spots left at this price!</p>
         </div>
-    </div>
+    </section>
 
-    <section class="about" id="about">
+    <section id="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose Me?</h2>
-                    <p class="highlight">I'm Saurav, Your SaaS Developer</p>
-                    <p>I've helped many startups build their products at companies like Valar Digital and The Payroll App. I know how to make successful SaaS products that users love.</p>
-                    <p style="margin-top: 1rem; color: var(--gray);">I only work with 3 clients each month. This means you get my full attention and direct communication.</p>
-                    <div class="expertise">
-                        <div class="expertise-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank">many more</a></span>
-                        </div>
-                        <div class="expertise-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>4+ years of specialized SaaS development experience</span>
-                        </div>
-                        <div class="expertise-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Direct 1-on-1 communication throughout</span>
-                        </div>
+                <h2>Why Choose Me?</h2>
+                <p>I'm Saurav, a SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
+                <p>I only work with 3 clients each month, ensuring you get my full attention and direct communication throughout the project.</p>
+                <div class="expertise">
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">many more</a>
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        4+ years of specialized SaaS development experience
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        Direct 1-on-1 communication throughout the project
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="process" id="process">
-        <div class="container">
-            <h2>How We'll Work Together</h2>
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-number">01</div>
-                    <h3>Discovery Chat</h3>
-                    <p>A casual 30-minute call to understand your vision and see if we're a good fit. No sales pitch, just honest discussion.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-number">02</div>
-                    <h3>Strategic Planning</h3>
-                    <p>We'll map out your MVP features and create a focused plan. Clear milestones, no hidden costs.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-number">03</div>
-                    <h3>Rapid Development</h3>
-                    <p>2-3 weeks of focused development with daily updates and weekly demos. You'll see your product take shape.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-number">04</div>
-                    <h3>Launch & Support</h3>
-                    <p>One-time payment of $999 after MVP approval. Includes 2 months of bug fixes and support.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 1rem;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Simple, Clear Pricing</h3>
-                <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                    <p style="color: var(--light);">One Price, Everything Included:</p>
-                </div>
-                <p style="color: var(--gray);">
-                    • Normal Price: $1,997<br>
-                    • <span style="color: var(--primary); font-weight: 600;">Special Price: $997</span> (Save $1,000)<br>
-                    • Only for first 5 clients<br>
-                    • 2 months of free support included<br>
-                    • Pay only when you're happy with the product<br>
-                    • No hidden costs or surprise charges
-                </p>
-                
-                <div style="margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;">
-                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Future Updates (Optional)</h4>
-                    <p style="color: var(--gray); margin-bottom: 1rem;">After your product launches, these are the prices if you want any changes:</p>
-                    <p style="color: var(--gray);">
-                        • Small Updates (1-2 days): $299<br>
-                        • Medium Updates (3-5 days): $599<br>
-                        • Big Updates (1-2 weeks): $999<br>
-                        • Custom Work: Will provide exact price before starting<br>
-                        • Monthly Support: $499/month (optional)
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <h3>The Payroll App</h3>
-                    <p class="portfolio-tech">Django, PostgreSQL, React</p>
-                    <p>Enterprise-grade payroll management system with advanced features and complex calculations.</p>
-                    <ul class="portfolio-features">
-                        <li>Complex payroll calculation engine</li>
-                        <li>Comprehensive testing with pytest</li>
-                        <li>Legacy code optimization</li>
-                    </ul>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Tymr Online</h3>
-                    <p class="portfolio-tech">Django, Channels, Redis, HTMX</p>
-                    <p>A real-time focus timer application with multi-user synchronization.</p>
-                    <ul class="portfolio-features">
-                        <li>Real-time multi-user features</li>
-                        <li>Race condition handling</li>
-                        <li>Comprehensive dashboard</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
+    <section id="contact">
         <div class="container">
             <h2>Let's Discuss Your Project</h2>
-            <p class="contact-subtitle">Currently scheduling projects for next month (2 slots remaining)</p>
-            <div style="text-align: center; margin-bottom: 2rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border-radius: 0.5rem;">
-                <i class="fas fa-gift" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Get Started for $997 - No Hidden Costs</p>
-                <p style="color: var(--gray);">Be one of my first 5 clients and save $1,000 on your project</p>
-                <p style="color: var(--primary); margin-top: 0.5rem; font-size: 0.9rem;">3 spots left!</p>
-                <p style="color: var(--gray); margin-top: 1rem; font-size: 0.9rem;">✓ Clear pricing ✓ No surprises ✓ Pay after approval</p>
-            </div>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">
-                <i class="fas fa-check-circle" style="color: var(--primary);"></i> 
-                I'll treat your product as my own startup - with the same care and dedication
-            </p>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mkgnbdeq" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Tell me about your project" required></textarea>
-                </div>
-                <!-- Anti-spam honeypot field -->
-                <input type="text" name="_gotcha" style="display:none">
-                <button type="submit" class="cta-button">
-                    <span class="default-text">Let's Build a Minimum Viable Product 🚀</span>
-                    <span class="loading-text" style="display:none">Sending...</span>
-                </button>
+            <form class="contact-form" action="https://formspree.io/f/mkgnbdeq" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Tell me about your project" required></textarea>
+                <button type="submit" class="cta-button">Let's Build a Minimum Viable Product 🚀</button>
             </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">SaaS Crafters</div>
-                    <p>Building scalable SaaS solutions with precision and care.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="mailto:selftaughtdev@proton.me">Email</a>
-                    <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank">LinkedIn</a>
-                    <a href="https://x.com/saurav__codes" target="_blank">Twitter</a>
-                    <a href="https://selftaughtdev.hashnode.dev/" target="_blank">Blog</a>
-                </div>
+            <div class="logo">SaaS Crafters</div>
+            <p>Building scalable SaaS solutions with precision and care.</p>
+            <div class="footer-links">
+                <a href="mailto:selftaughtdev@proton.me"><i class="ph ph-envelope"></i> Email</a>
+                <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
+                <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer"><i class="ph ph-newspaper"></i> Blog</a>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Simple form handling with loading state
-        const form = document.getElementById('contactForm');
-        
-        form.addEventListener('submit', function(e) {
-            const button = form.querySelector('button');
-            const defaultText = button.querySelector('.default-text');
-            const loadingText = button.querySelector('.loading-text');
-            
-            // Show loading state
-            defaultText.style.display = 'none';
-            loadingText.style.display = 'inline';
-            button.disabled = true;
+        // Three.js background animation
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        const size = 2000;
+
+        for (let i = 0; i < 10000; i++) {
+            const x = (Math.random() - 0.5) * size;
+            const y = (Math.random() - 0.5) * size;
+            const z = (Math.random() - 0.5) * size;
+            vertices.push(x, y, z);
+        }
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+        const material = new THREE.PointsMaterial({ color: 0x3b82f6, size: 2, transparent: true });
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+
+        camera.position.z = 1000;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            points.rotation.x += 0.0005;
+            points.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                nav.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+                nav.classList.add('scrolled');
             } else {
-                nav.style.backgroundColor = 'rgba(15, 23, 42, 0.9)';
+                nav.classList.remove('scrolled');
             }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const progressBar = document.querySelector('.progress-bar');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = `${scrolled}%`;
         });
     </script>
     <!-- analytics -->
@@ -635,4 +737,4 @@
   >
   </script>
 </body>
-</html> 
+</html>
