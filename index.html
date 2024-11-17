@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>SaaS Crafters - Custom SaaS Development & MVP Solutions</title>
-    <meta name="title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <title>SaaS Crafter - Custom SaaS Development & MVP Solutions</title>
+    <meta name="title" content="SaaS Crafter - Custom SaaS Development & MVP Solutions">
     <meta name="description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
     <meta name="keywords" content="saas development, mvp development, custom software development, web application development, startup mvp, software development services, django development, python development, saas builder, tech startup, software consulting">
     <meta name="author" content="Saurav">
@@ -26,14 +26,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://saascrafter.art/">
-    <meta property="og:title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <meta property="og:title" content="SaaS Crafter - Custom SaaS Development & MVP Solutions">
     <meta property="og:description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
     <meta property="og:image" content="https://saascrafter.art/assets/images/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://saascrafter.art/">
-    <meta property="twitter:title" content="SaaS Crafters - Custom SaaS Development & MVP Solutions">
+    <meta property="twitter:title" content="SaaS Crafter - Custom SaaS Development & MVP Solutions">
     <meta property="twitter:description" content="Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack. 4+ years of specialized experience in building scalable SaaS solutions.">
     <meta property="twitter:image" content="https://saascrafter.art/assets/images/twitter-image.jpg">
 
@@ -49,7 +49,7 @@
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "SaaS Crafters",
+      "name": "SaaS Crafter",
       "description": "Expert SaaS development services with transparent pricing. Build your MVP in 2-3 weeks with a battle-tested tech stack.",
       "image": "https://saascrafter.art/assets/images/og-image.jpg",
       "url": "https://saascrafter.art",
@@ -129,7 +129,7 @@
                 <div class="feature-card">
                     <i class="ph ph-money icon"></i>
                     <h3>100% Clear Pricing</h3>
-                    <p>One simple price: $997. No extra charges, no surprises. You only pay after you're happy with the product.</p>
+                    <p>One simple price: <span class="green">$997</span>. No extra charges, no surprises. You only pay after you're happy with the product.</p>
                 </div>
                 <div class="feature-card">
                     <i class="ph ph-stack icon"></i>
@@ -408,7 +408,9 @@
             <form class="contact-form" action="https://formspree.io/f/mkgnbdeq" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="_replyto" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Tell me about your project" required></textarea>
+                <textarea name="message" 
+                placeholder="Tell me about your project. What are you building? What are you looking for? What are your goals? You don't need to explain everything, just tell the most important stuff." 
+                required></textarea>
                 <button type="submit" class="cta-button">Let's Build a Minimum Viable Product 🚀</button>
             </form>
         </div>
@@ -438,7 +440,7 @@
                                 <div class="code-line"></div>
                             </div>
                         </div>
-                        <div class="logo-text">SaaS Crafters</div>
+                        <div class="logo-text">SaaS Crafter</div>
                     </div>
                     <p class="tagline">Building scalable SaaS solutions with precision and care.</p>
                 </div>
@@ -454,8 +456,84 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="./assets/files/threejsanimation.js"></script>
+    <!-- Update the Vanta.js scripts and configuration -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script>
+    let vantaEffect = VANTA.BIRDS({
+      el: "#canvas-container",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      backgroundColor: 0x111111,
+      color1: 0x3b82f6,
+      color2: 0xffffff,
+      colorMode: "variance",
+      birdSize: 1.50,
+      wingSpan: 40.00,
+      speedLimit: 5.00,
+      separation: 100.00,
+      alignment: 50.00,
+      cohesion: 50.00,
+      quantity: 3.00
+    });
+
+    // Animation to make birds fly away and fade out
+    setTimeout(() => {
+      let startTime = Date.now();
+      let flyDuration = 2000; // 2 second fly animation
+      let fadeDuration = 1500; // 1.5 second fade animation
+      let totalDuration = flyDuration + fadeDuration;
+      
+      // Create a style element for the fade animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      let animate = () => {
+        let elapsed = Date.now() - startTime;
+        let progress = Math.min(elapsed / totalDuration, 1);
+        let flyProgress = Math.min(elapsed / flyDuration, 1);
+        
+        // First phase: fly away
+        if (elapsed < flyDuration) {
+          vantaEffect.setOptions({
+            separation: 100 + (flyProgress * 900),
+            cohesion: 50 * (1 - flyProgress),
+            speedLimit: 5 + (flyProgress * 15),
+          });
+        }
+        
+        // Second phase: fade out
+        if (elapsed >= flyDuration && elapsed <= totalDuration) {
+          let fadeProgress = (elapsed - flyDuration) / fadeDuration;
+          document.getElementById('canvas-container').style.opacity = 1 - fadeProgress;
+        }
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          // Cleanup after fade
+          setTimeout(() => {
+            vantaEffect.destroy();
+            document.getElementById('canvas-container').style.opacity = 1;
+          }, 100);
+        }
+      };
+      
+      animate();
+    }, 3000); // Start flying away after 3 seconds
+    </script>
+
     <script src="./assets/files/scroll_progress.js"></script>
     
     <script
