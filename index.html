@@ -500,6 +500,189 @@
             0%, 100% { transform: translateX(0); opacity: 0.8; }
             50% { transform: translateX(5px); opacity: 0.4; }
         }
+
+        /* Work Section Styles */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .work-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-content {
+            padding: 1.5rem;
+        }
+
+        .work-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tech-stack span {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-stack span:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tech-stack i {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Founder Profile Styles */
+        .founder-profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .founder-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-details {
+            flex: 1;
+        }
+
+        .founder-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .founder-title {
+            font-size: 1.1rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .founder-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .founder-image {
+                margin: 0 auto;
+            }
+        }
+
+        .work-content h3 a {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .work-content h3 a:hover {
+            color: var(--accent);
+        }
+
+        .work-content h3 a i {
+            font-size: 0.9em;
+        }
+
+        .work-content p a {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .work-content p a:hover {
+            color: var(--accent);
+        }
+
+        .work-content p a i {
+            font-size: 0.9em;
+        }
+
+        .work-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover .work-image video {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -532,6 +715,7 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#work">Work</a>
                 <a href="#process">Process</a>
                 <a href="#about">About</a>
                 <a href="#contact" class="cta-button">Get Started</a>
@@ -575,6 +759,126 @@
         </div>
     </section>
 
+    <section id="work">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="/assets/images/tpa.gif" alt="The Payroll App - Payroll Management System" loading="lazy">
+                    </div>
+                    <div class="work-content">
+                        <h3>
+                            <a href="https://thepayroll.app" target="_blank" rel="noopener noreferrer">
+                                The Payroll App <i class="ph ph-arrow-square-out"></i>
+                            </a>
+                        </h3>
+                        <p>A comprehensive SAAS payroll management system. Led feature development, code refactoring, and implemented comprehensive testing using pytest.</p>
+                        <div class="tech-stack">
+                            <span><i class="ph ph-file-python"></i> Django</span>
+                            <span><i class="ph ph-database"></i> PostgreSQL</span>
+                            <span><i class="ph ph-test-tube"></i> pytest</span>
+                            <span><i class="ph ph-database"></i> Redis</span>
+                            <span><i class="ph ph-code"></i> JavaScript</span>
+                            <span><i class="ph ph-code"></i> HTMX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <img src="/assets/images/leadplane.gif" alt="LeadPlane - Business Lead Automation Platform" loading="lazy">
+                    </div>
+                    <div class="work-content">
+                        <h3>
+                            <a href="https://leadplane.io" target="_blank" rel="noopener noreferrer">
+                                LeadPlane.io <i class="ph ph-arrow-square-out"></i>
+                            </a>
+                        </h3>
+                        <p>Automation platform that connects Facebook leads to various business tools. Integrates with Hubspot, Zendesk, email, and WhatsApp for seamless lead management.</p>
+                        <div class="tech-stack">
+                            <span><i class="ph ph-file-python"></i> Django</span>
+                            <span><i class="ph ph-leaf"></i> Celery</span>
+                            <span><i class="ph ph-database"></i> Redis</span>
+                            <span><i class="ph ph-plugs-connected"></i>APIs of various tools</span>
+                            <span><i class="ph ph-database"></i> PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <video autoplay loop muted playsinline>
+                            <source src="/assets/images/tymr_online.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="work-content">
+                        <h3>
+                            <a href="https://tymr.online" target="_blank" rel="noopener noreferrer">
+                                Tymr Online <i class="ph ph-arrow-square-out"></i>
+                            </a>
+                        </h3>
+                        <p>Cloud-based timer for multi-user focus sessions. Features real-time sync using Django Channels, race condition handling, and comprehensive productivity tracking.</p>
+                        <div class="tech-stack">
+                            <span><i class="ph ph-file-python"></i> Django</span>
+                            <span><i class="ph ph-code"></i> HTMX</span>
+                            <span><i class="ph ph-database"></i> Redis</span>
+                            <span><i class="ph ph-code"></i> JavaScript</span>
+                            <span><i class="ph ph-database"></i> SQLite</span>
+                            <span><i class="ph ph-chart-line"></i>Beam Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <video autoplay loop muted playsinline>
+                            <source src="/assets/images/randomtools.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="work-content">
+                        <h3>
+                            <a href="https://randomtools.io" target="_blank" rel="noopener noreferrer">
+                                Random Tools <i class="ph ph-arrow-square-out"></i>
+                            </a>
+                        </h3>
+                        <p>Enhanced developer tools platform with advanced image processing capabilities. Implemented OpenCV-based features for image manipulation, optimization, and analysis tools used by developers worldwide.</p>
+                        <div class="tech-stack">
+                            <span><i class="ph ph-file-python"></i> Django</span>
+                            <span><i class="ph ph-image"></i> OpenCV</span>
+                            <span><i class="ph ph-database"></i> PostgreSQL</span>
+                            <span><i class="ph ph-code"></i> JavaScript</span>
+                            <span><i class="ph ph-cpu"></i> NumPy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-image">
+                        <video autoplay loop muted playsinline>
+                            <source src="/assets/images/clasiq.mov" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="work-content">
+                        <h3>
+                            <a href="https://clasiq.com" target="_blank" rel="noopener noreferrer">
+                                Clasiq Cars <i class="ph ph-arrow-square-out"></i>
+                            </a>
+                        </h3>
+                        <p>Contributed to the development of a premium classic car marketplace. Implemented high-speed search functionality using ElasticSearch, performed code refactoring, and developed new features for the platform.</p>
+                        <div class="tech-stack">
+                            <span><i class="ph ph-file-python"></i> Django</span>
+                            <span><i class="ph ph-magnifying-glass"></i> ElasticSearch</span>
+                            <span><i class="ph ph-leaf"></i> Haystack</span>
+                            <span><i class="ph ph-database"></i> PostgreSQL</span>
+                            <span><i class="ph ph-code"></i> JavaScript</span>
+                            <span><i class="ph ph-cloud"></i> AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="process">
         <div class="container">
             <h2>How We'll Work Together</h2>
@@ -609,15 +913,20 @@
 
     <section id="about">
         <div class="container">
+            <h2>Meet the Founder</h2>
             <div class="about-content">
-                <h2>Why Choose Me?</h2>
-                <p>I'm Saurav, a SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
+                <div class="founder-profile">
+                    <div class="founder-image">
+                        <img src="/assets/images/me.jpg" alt="Saurav Sharma - SaaS Developer" loading="lazy">
+                    </div>
+                    <div class="founder-details">
+                        <h3>Saurav Sharma</h3>
+                        <span class="founder-title">Full-Stack Django Developer</span>
+                    </div>
+                </div>
+                <p>I'm a self-taught SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
                 <p>I only work with 3 clients each month, ensuring you get my full attention and direct communication throughout the project.</p>
                 <div class="expertise">
-                    <div class="expertise-item">
-                        <i class="ph ph-check-circle"></i>
-                        Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">many more</a>
-                    </div>
                     <div class="expertise-item">
                         <i class="ph ph-check-circle"></i>
                         4+ years of specialized SaaS development experience
@@ -625,6 +934,14 @@
                     <div class="expertise-item">
                         <i class="ph ph-check-circle"></i>
                         Direct 1-on-1 communication throughout the project
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        No hidden costs, no surprises
+                    </div>
+                    <div class="expertise-item">
+                        <i class="ph ph-check-circle"></i>
+                        Quick Support
                     </div>
                 </div>
             </div>
@@ -650,7 +967,7 @@
             <div class="footer-links">
                 <a href="mailto:selftaughtdev@proton.me"><i class="ph ph-envelope"></i> Email</a>
                 <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
+                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> X (Twitter)</a>
                 <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer"><i class="ph ph-newspaper"></i> Blog</a>
             </div>
         </div>
