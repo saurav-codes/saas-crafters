@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Crafters - Custom SaaS Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --text: #ffffff;
+            --background: #000000;
+            --accent: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            transition: background 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: var(--text);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        h1, h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features-grid, .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card, .process-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover, .process-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            font-weight: 700;
+            opacity: 0.1;
+            color: var(--primary);
+        }
+
+        .about-content, .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-item::before {
+            content: '→';
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            color: var(--text);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.05s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar"></div>
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">SaaS Crafters</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#process">Process</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Let's Build Your SaaS Product Together</h1>
+            <p>Hi! I'm a SaaS developer with 4+ years of experience. I'm offering a 50% discount to my first 3 clients. Simple pricing, no hidden costs!</p>
+            <a href="#contact" class="cta-button">Get 50% Off - Only 3 Spots Left</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>100% Clear Pricing</h3>
+                    <p>One simple price: $997. No extra charges, no surprises. You only pay after you're happy with the product.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Battle-Tested Stack</h3>
+                    <p>Built with Django & Python - the same tech that powers Instagram, Spotify, and NASA. Your product deserves nothing less.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Milestone-Based Payment</h3>
+                    <p>Clear payment structure tied to project milestones. Your investment is protected as you see your product take shape.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Personal Attention</h3>
+                    <p>I treat your project like my own business. Your success is my success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="container">
+            <h2>How We'll Work Together</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Discovery Chat</h3>
+                    <p>A casual 30-minute call to understand your vision and see if we're a good fit. No sales pitch, just honest discussion.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Strategic Planning</h3>
+                    <p>We'll map out your MVP features and create a focused plan. Clear milestones, no hidden costs.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Rapid Development</h3>
+                    <p>2-3 weeks of focused development with daily updates and weekly demos. You'll see your product take shape.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Launch & Support</h3>
+                    <p>One-time payment of $999 after MVP approval. Includes 2 months of bug fixes and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Why Choose Me?</h2>
+                <p>I'm Saurav, a SaaS developer with 4+ years of specialized experience. I've helped many startups build their products at companies like Valar Digital and The Payroll App.</p>
+                <p>I only work with 3 clients each month, ensuring you get my full attention and direct communication throughout the project.</p>
+                <div class="expertise">
+                    <div class="expertise-item">Helped build goodmeeting.today, leadplane.io, thepayroll.app, clasiq.com & <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">many more</a></div>
+                    <div class="expertise-item">4+ years of specialized SaaS development experience</div>
+                    <div class="expertise-item">Direct 1-on-1 communication throughout the project</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Discuss Your Project</h2>
+            <form class="contact-form" action="https://formspree.io/f/mkgnbdeq" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Tell me about your project" required></textarea>
+                <button type="submit" class="cta-button">Let's Build a Minimum Viable Product 🚀</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">SaaS Crafters</div>
+            <p>Building scalable SaaS solutions with precision and care.</p>
+            <div class="footer-links">
+                <a href="mailto:selftaughtdev@proton.me">Email</a>
+                <a href="https://www.linkedin.com/in/saurav-codes/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://x.com/saurav__codes" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://selftaughtdev.hashnode.dev/" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js background animation
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        const size = 2000;
+
+        for (let i = 0; i < 10000; i++) {
+            const x = (Math.random() - 0.5) * size;
+            const y = (Math.random() - 0.5) * size;
+            const z = (Math.random() - 0.5) * size;
+            vertices.push(x, y, z);
+        }
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+        const material = new THREE.PointsMaterial({ color: 0x3b82f6, size: 2, transparent: true });
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+
+        camera.position.z = 1000;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            points.rotation.x += 0.0005;
+            points.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const progressBar = document.querySelector('.progress-bar');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = `${scrolled}%`;
+        });
+    </script>
+</body>
+</html>
