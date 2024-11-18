@@ -124,16 +124,30 @@ nav.scrolled {
 .cta-button {
     background: linear-gradient(to right, var(--primary), var(--accent));
     color: var(--text);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
     text-decoration: none;
-    font-weight: 500;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+    filter: brightness(1.1);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 section {
@@ -1125,7 +1139,8 @@ textarea {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
 }
 
 .toggle-button {
@@ -1170,4 +1185,98 @@ textarea {
 
 #calendar-form-container {
     min-height: 600px;
+}
+
+/* Add or update these styles for the contact form */
+.contact-form textarea {
+    min-height: 200px; /* Increase from default */
+    font-size: 16px; /* Larger font size */
+    line-height: 1.5; /* Better line height for readability */
+    padding: 16px; /* More padding */
+}
+
+.contact-form input {
+    font-size: 16px; /* Larger font size */
+    padding: 12px 16px; /* More padding */
+    height: 48px; /* Taller input fields */
+}
+
+/* If you want the form container itself to be wider */
+#contact-form-container {
+    max-width: 800px; /* Increase from default */
+    margin: 0 auto;
+}
+
+/* Make placeholder text slightly darker for better contrast */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+/* Form container styles */
+#contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Form styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Input and textarea styles */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    color: var(--text);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input {
+    height: 56px;
+    padding: 0 1.5rem;
+}
+
+.contact-form textarea {
+    min-height: 200px;
+    padding: 1.5rem;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+/* Form button alignment */
+.contact-form .cta-button {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Toggle buttons container */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #contact-form-container {
+        padding: 0 1rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Maintain readable size on mobile */
+    }
 }
