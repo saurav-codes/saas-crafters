@@ -356,53 +356,215 @@ p {
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
+    position: relative;
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+/* Improved gradient overlay with more depth */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.4) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(59, 130, 246, 0.1) 0%,
+            rgba(16, 185, 129, 0.05) 100%
+        );
+    pointer-events: none;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    padding: 3.5rem;
+    border-radius: 2rem;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Add a subtle glow effect */
+.hero-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.2),
+        rgba(16, 185, 129, 0.2)
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Enhance text contrast for better readability */
 .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: #FFFFFF;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: #E5E7EB;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust hover state for better visibility */
+.hero-content:hover {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    transform: translateY(-2px);
+}
+
+/* Enhance the green highlight for better contrast */
+.hero-content .green::before {
+    background: linear-gradient(
+        135deg,
+        rgba(52, 211, 153, 0.2),
+        rgba(52, 211, 153, 0.08)
+    );
+}
+
+/* Enhanced heading with better typography and effects */
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
     margin-bottom: 2rem;
-    max-width: 700px;
+    background: linear-gradient(
+        180deg,
+        #FFFFFF 0%,
+        rgba(255, 255, 255, 0.9) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    letter-spacing: -0.02em;
+}
+
+/* Enhanced subheading with better readability */
+.hero-content p {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.6;
+    color: rgba(229, 231, 235, 0.95);
+    margin-bottom: 3rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    max-width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Enhanced highlight effect for the green text */
 .hero-content .green {
+    position: relative;
+    display: inline-flex;
+    padding: 0.2em 0.4em;
+    margin: 0 -0.2em;
     color: #34D399;
     font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.hero-content h1,
-.hero-content p {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.hero-content .green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(52, 211, 153, 0.15),
+        rgba(52, 211, 153, 0.05)
+    );
+    border-radius: 0.5rem;
+    z-index: -1;
+    transform: skew(-3deg);
+    transition: all 0.3s ease;
 }
 
+/* Enhanced CTA button */
+.hero-content .cta-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--accent) 100%
+    );
+    border-radius: 1rem;
+    box-shadow: 
+        0 4px 20px rgba(59, 130, 246, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-content .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 30px rgba(59, 130, 246, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    filter: brightness(1.1);
+}
+
+/* Add floating animation to hero content */
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.01);
+    }
+}
+
+.hero-content {
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* Responsive design improvements */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-content {
+        padding: 2rem;
+        margin: 0 1rem;
     }
     
     .hero-content p {
+        max-width: 100%;
+        font-size: 1.25rem;
+    }
+    
+    .hero-content .cta-button {
+        padding: 1rem 2rem;
         font-size: 1.125rem;
-        padding: 0 1rem;
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -1551,4 +1713,175 @@ textarea {
     .founder-title {
         font-size: 1.125rem;
     }
+}
+
+/* Enhanced Features/Why Choose Me Section */
+.features-section {
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Title Enhancement */
+.features-section h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+/* Enhanced Grid Layout */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Enhanced Feature Card */
+.feature-card {
+    position: relative;
+    padding: 2.5rem;
+    background: rgba(17, 25, 40, 0.75);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* Gradient Border Animation */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.5),
+        rgba(16, 185, 129, 0.5)
+    );
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Enhanced Icon Styling */
+.feature-card .icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.feature-card .icon i {
+    font-size: 1.5rem;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced Title Styling */
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #FFFFFF, rgba(255, 255, 255, 0.9));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced Price/Text Styling */
+.feature-card .highlight {
+    color: #34D399;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    color: rgba(229, 231, 235, 0.9);
+    line-height: 1.7;
+    margin-bottom: 0;
+    font-size: 1.125rem;
+}
+
+/* Enhanced Hover Effects */
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card:hover .icon {
+    transform: scale(1.1);
+}
+
+/* Add subtle floating animation */
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.feature-card {
+    animation: cardFloat 6s ease-in-out infinite;
+    animation-delay: calc(var(--card-index) * 0.2s);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .features-section h2 {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+/* Add subtle glow effect */
+.feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover::after {
+    opacity: 1;
 }
