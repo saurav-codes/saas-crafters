@@ -125,7 +125,7 @@
                 with 4+ years of experience. I'm offering a 50% discount to my first 3 clients. 
                 Simple pricing, no hidden costs!
             </p>
-            <a href="#contact-section" class="cta-button">Get 50% Off - Only 3 Spots Left 🚀</a>
+            <a href="#contact-section" class="cta-button">Get 50% Off - Only 3 Spots Left 📦🚀</a>
         </div>
     </section>
 
@@ -164,8 +164,10 @@
                 <div class="pricing-header">
                     <h3>MVP Development Package</h3>
                     <div class="price">
-                        <span class="original-price">$3,000</span>
-                        <span class="current-price">$1,500</span>
+                        <div class="price-amounts">
+                            <span class="original-price">$3,000</span>
+                            <span class="current-price">$1,500</span>
+                        </div>
                         <span class="billing-cycle">one-time payment</span>
                     </div>
                 </div>
@@ -180,13 +182,15 @@
                     </div>
                     <div class="feature-item">
                         <i class="ph ph-check-circle"></i>
-                        <span>2 Months of:</span>
-                        <ul style="margin-left: 25px; margin-top: 5px;">
-                            <li>Critical bug fixes</li>
-                            <li>Email/WhatsApp technical guidance</li>
-                            <li>Server monitoring & uptime</li>
-                            <li>Basic security patches</li>
-                        </ul>
+                        <div class="feature-content">
+                            <span>2 Months of:</span>
+                            <ul>
+                                <li>Critical bug fixes</li>
+                                <li>Email/WhatsApp technical guidance</li>
+                                <li>Server monitoring & uptime</li>
+                                <li>Basic security patches</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="feature-item">
                         <i class="ph ph-check-circle"></i>
@@ -450,17 +454,41 @@
             <div id="contact-form-container" class="form-container active">
                 <h2>Let's Discuss Your Project</h2>
                 <form class="contact-form" action="https://formspree.io/f/mkgnbdeq" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <textarea name="message" 
-                    placeholder="Tell me about your project. What are you building? What are you looking for? What are your goals? You don't need to explain everything, just tell the most important stuff." 
-                    required></textarea>
-                    <button type="submit" class="cta-button">Let's Build a Minimum Viable Product 🚀</button>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Your Name" 
+                        required
+                        aria-label="Your Name"
+                    >
+                    <input 
+                        type="email" 
+                        name="_replyto" 
+                        placeholder="Your Email" 
+                        required
+                        aria-label="Your Email"
+                    >
+                    <textarea 
+                        name="message" 
+                        placeholder="Tell me about your project...
+
+• What are you building?
+• What problems are you trying to solve?
+• What are your main goals?
+• What's your timeline?
+
+Don't worry about explaining everything - just the key points!" 
+                        required
+                        aria-label="Project Description"
+                    ></textarea>
+                    <button type="submit" class="cta-button">
+                        Let's Build Something Amazing 🚀
+                    </button>
                 </form>
             </div>
 
             <div id="calendar-form-container" class="form-container">
-                <h2>Schedule a Call</h2>
+                <h2>Schedule a Discovery Call</h2>
                 <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
             </div>
         </div>
@@ -525,11 +553,47 @@ Cal("init", "30min", {origin:"https://cal.com"});
 
   Cal.ns["30min"]("inline", {
     elementOrSelector:"#my-cal-inline",
-    config: {"layout":"month_view"},
-    calLink: "saurav-sharma-x4yjjo/30min",
+    config: {
+      "layout": "month_view",
+      "theme": "dark",
+      "hideEventTypeDetails": false,
+      "styles": {
+        "body": {
+          "background": "#111827"
+        },
+        "branding": {
+          "brandColor": "#3b82f6"
+        },
+        "elements": {
+          "calendar": {
+            "background": "#111827",
+            "text": "#ffffff"
+          },
+          "header": {
+            "background": "#111827",
+            "text": "#ffffff"
+          },
+          "footer": {
+            "background": "#111827",
+            "text": "#ffffff"
+          }
+        }
+      }
+    },
+    calLink: "saurav-sharma-x4yjjo/30min"
   });
 
-  Cal.ns["30min"]("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  Cal.ns["30min"]("ui", {
+    "styles": {
+      "branding": {"brandColor": "#3b82f6"},
+      "body": {"background": "#111827"},
+      "text": {"default": "#ffffff"},
+      "header": {"background": "#111827", "text": "#ffffff"},
+      "footer": {"background": "#111827", "text": "#ffffff"}
+    },
+    "hideEventTypeDetails": false,
+    "layout": "month_view"
+  });
   </script>
 
 

@@ -367,6 +367,45 @@ p {
     margin: 0 auto;
 }
 
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #E5E7EB;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content .green {
+    color: #34D399;
+    font-weight: 600;
+}
+
+.hero-content h1,
+.hero-content p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.125rem;
+        padding: 0 1rem;
+    }
+}
+
 .features-grid,
 .process-grid {
     display: grid;
@@ -895,82 +934,123 @@ footer {
 .pricing-card {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(17, 24, 39, 0.7);
     border-radius: 1rem;
     padding: 3rem;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .pricing-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .pricing-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #60A5FA;
 }
 
 .price {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+}
+
+.price-amounts {
+    display: flex;
+    align-items: center;
     gap: 1rem;
-    margin: 2rem 0;
 }
 
 .original-price {
-    color: var(--text);
+    color: #9CA3AF;
     text-decoration: line-through;
-    font-size: 2rem;
-    opacity: 0.5;
+    font-size: 1.75rem;
+    opacity: 0.8;
 }
 
 .current-price {
-    color: var(--primary);
-    font-size: 4rem;
+    color: #10B981;
+    font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
 }
 
 .billing-cycle {
-    display: block;
-    color: var(--text);
-    opacity: 0.7;
+    color: #D1D5DB;
+    opacity: 0.9;
     font-size: 1rem;
-    margin-top: 0.5rem;
-    text-align: center;
 }
 
 .pricing-features {
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .pricing-features .feature-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
-    margin: 1rem 0;
-    color: var(--text);
+    margin-bottom: 1.25rem;
+    color: #E5E7EB;
+    opacity: 0.95;
+}
+
+.pricing-features .feature-item:last-child {
+    margin-bottom: 0;
 }
 
 .pricing-features .feature-item i {
-    color: var(--accent);
+    color: #34D399;
     font-size: 1.25rem;
     flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.feature-content ul {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.feature-content ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: #D1D5DB;
+    opacity: 0.9;
+}
+
+.feature-content ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #34D399;
 }
 
 .pricing-footer {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+}
+
+.pricing-footer .cta-button {
+    width: 100%;
+    justify-content: center;
 }
 
 .pricing-note {
     margin-top: 1rem;
-    color: var(--text);
-    opacity: 0.7;
+    color: #9CA3AF;
+    opacity: 0.8;
     font-size: 0.9rem;
 }
 
@@ -980,17 +1060,20 @@ footer {
         margin: 0 1rem;
     }
 
-    .price {
-        flex-direction: column;
-        gap: 0.5rem;
+    .pricing-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .original-price {
+        font-size: 1.5rem;
     }
 
     .current-price {
         font-size: 3rem;
     }
 
-    .original-price {
-        font-size: 1.5rem;
+    .feature-content ul {
+        margin-left: 0.5rem;
     }
 }
 
@@ -1136,157 +1219,336 @@ textarea {
 }
 
 /* Contact Section Styles */
+#contact-section {
+    padding: 80px 0;
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+/* Toggle Container Styles */
 .toggle-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    padding: 0 1rem;
 }
 
 .toggle-button {
-    padding: 0.75rem 1.5rem;
-    border: 2px solid #3b82f6;
-    background: transparent;
-    color: #3b82f6;
-    border-radius: 8px;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(17, 24, 39, 0.7);
+    color: #60A5FA;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.toggle-button i {
-    font-size: 1.2rem;
-}
-
 .toggle-button.active {
-    background: #3b82f6;
-    color: white;
+    background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+    color: #FFFFFF;
+    border-color: transparent;
 }
 
-.toggle-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-}
-
+/* Form Container Styles */
 .form-container {
     display: none;
+    max-width: 800px;
+    margin: 0 auto;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .form-container.active {
     display: block;
     opacity: 1;
+    transform: translateY(0);
 }
 
 #calendar-form-container {
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+#calendar-form-container #my-cal-inline {
+    display: none;
     min-height: 600px;
-}
-
-/* Add or update these styles for the contact form */
-.contact-form textarea {
-    min-height: 200px;
-    /* Increase from default */
-    font-size: 16px;
-    /* Larger font size */
-    line-height: 1.5;
-    /* Better line height for readability */
-    padding: 16px;
-    /* More padding */
-}
-
-.contact-form input {
-    font-size: 16px;
-    /* Larger font size */
-    padding: 12px 16px;
-    /* More padding */
-    height: 48px;
-    /* Taller input fields */
-}
-
-/* If you want the form container itself to be wider */
-#contact-form-container {
-    max-width: 800px;
-    /* Increase from default */
-    margin: 0 auto;
-}
-
-/* Make placeholder text slightly darker for better contrast */
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #666;
-    opacity: 1;
-}
-
-/* Form container styles */
-#contact-form-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Form styles */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
     width: 100%;
 }
 
-/* Input and textarea styles */
+#calendar-form-container.active #my-cal-inline {
+    display: block;
+}
+
+#contact-form-container {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 1rem;
+    padding: 2.5rem;
+}
+
+/* Calendar specific styles */
+#my-cal-inline {
+    min-height: 600px;
+    width: 100%;
+    overflow: auto;
+}
+
+/* Form Input Styles */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0.75rem;
-    color: var(--text);
-    font-size: 16px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    color: #E5E7EB;
+    font-size: 1.125rem;
     transition: all 0.3s ease;
+    padding: 1rem 1.25rem;
 }
 
 .contact-form input {
     height: 56px;
-    padding: 0 1.5rem;
 }
 
 .contact-form textarea {
     min-height: 200px;
-    padding: 1.5rem;
+    padding: 1.25rem;
     line-height: 1.6;
     resize: vertical;
 }
 
-/* Form button alignment */
-.contact-form .cta-button {
-    width: 100%;
-    justify-content: center;
-    margin-top: 1rem;
+/* Placeholder Styles */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #9CA3AF;
+    opacity: 0.8;
 }
 
-/* Toggle buttons container */
-.toggle-container {
+/* Focus States */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #3B82F6;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+
+/* Submit Button */
+.contact-form .cta-button {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1.125rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+    border: none;
+    cursor: pointer;
     display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+/* Calendar Container */
+#calendar-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .toggle-container {
+        flex-direction: column;
+        padding: 0 1.5rem;
+    }
+
+    .toggle-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.75rem;
+        margin-top: 15px;
+    }
+}
+
+.pricing-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Founder Section Styles */
+#about {
+    padding: 100px 0;
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.about-content {
+    max-width: 800px; /* Increased from 600px for better content spread */
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.founder-profile {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.founder-image {
+    width: 180px; /* Increased from 150px */
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #60A5FA;
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+    flex-shrink: 0;
+}
+
+.founder-details {
+    flex: 1;
+}
+
+.founder-details h3 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #60A5FA;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.founder-title {
+    font-size: 1.25rem;
+    color: #E5E7EB;
+    display: block;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Main text content */
+.about-content p {
+    color: #E5E7EB;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Expertise list styling */
+.expertise {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: center;
     gap: 1rem;
-    margin-bottom: 3rem;
-    padding: 0 1rem;
+    margin-bottom: 1rem;
+    color: #E5E7EB;
+    font-size: 1.125rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.expertise-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.expertise-item i {
+    color: #34D399;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* Social links styling */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #E5E7EB;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60A5FA;
+    transform: translateY(-2px);
+    border-color: rgba(96, 165, 250, 0.3);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    #contact-form-container {
-        padding: 0 1rem;
+    .founder-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
     }
 
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 16px;
-        /* Maintain readable size on mobile */
+    .founder-image {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .expertise-item {
+        font-size: 1rem;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .founder-details h3 {
+        font-size: 1.75rem;
+    }
+
+    .founder-title {
+        font-size: 1.125rem;
     }
 }
