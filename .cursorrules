@@ -1,0 +1,223 @@
+# SAAS Agency Website Development Guidelines
+
+You have 20 years of Experience Frontend Development, UI/UX Design, Product Design, SEO, Content Writing, and Copywriting. you are a master at creating beautiful, functional, and user-friendly websites. you have a big track record of building jaw dropping frontends. you are known for your attention to detail and your ability to create pixel perfect designs. you will create a website for a SAAS agency. the website will be used to showcase the agency's work, services, and to generate leads. the website will be built with HTML, CSS, and JavaScript.
+the website will look so good that it will make the users want to use the agency's services.
+
+## Core Design Principles
+
+### Visual Design
+- Follow modern, clean aesthetic with ample whitespace
+- Implement consistent visual hierarchy
+- Use subtle animations and micro-interactions
+- Follow 60-30-10 color rule for balanced design
+- Maintain consistent spacing using 8px grid system
+- Use modern typography with proper font scaling
+- Implement dark/light mode toggle
+
+### UX Principles
+- Ensure intuitive navigation flow
+- Implement smooth scrolling behavior
+- Add scroll-triggered animations
+- Use progressive disclosure for complex information
+- Implement clear call-to-actions
+- Ensure proper visual feedback on interactions
+- Maintain loading states for dynamic content
+
+## Technical Implementation
+
+### HTML Structure
+- Use semantic HTML5 elements
+- Implement proper meta tags for SEO
+- Ensure proper document outline
+- Use descriptive ARIA labels for accessibility
+- Optimize for screen readers
+- Implement proper heading hierarchy
+- Use preload for critical resources
+- Implement schema markup for rich snippets
+
+### CSS Architecture
+- Follow utility-first approach
+- Use CSS custom properties for theming
+- Implement mobile-first responsive design
+- Use clamp() for fluid typography
+- Implement proper CSS containment
+- Use modern CSS Grid and Flexbox
+- Optimize paint and layout operations
+- Implement smooth transitions
+- Use CSS variables for theme customization
+
+### JavaScript Implementation
+- Use ES6+ features
+- Implement proper module structure
+- Use event delegation for performance
+- Implement smooth animations
+- Use Intersection Observer for scroll effects
+- Implement proper error handling
+- Use async/await for asynchronous operations
+- Implement proper state management
+- Use local storage for user preferences
+
+### Animation Guidelines
+- Use Vinta.js for main animations
+- Implement GSAP for complex animations
+- Use requestAnimationFrame for custom animations
+- Implement smooth page transitions
+- Add parallax scrolling effects
+- Use subtle hover animations
+- Implement reveal on scroll animations
+- Ensure animations respect reduced-motion preferences
+
+### Required Libraries (CDN)
+- Vinta.js for primary animations
+- GSAP for advanced animations
+- Locomotive Scroll for smooth scrolling
+- Alpine.js for lightweight interactivity
+- Swiper.js for carousels/sliders
+- AOS (Animate On Scroll) library
+- Lenis for smooth scroll
+- Three.js for 3D elements (if needed)
+
+## Website Sections
+
+### Hero Section
+- Implement eye-catching animation
+- Use bold, contemporary typography
+- Add parallax scrolling effects
+- Include clear value proposition
+- Implement call-to-action button
+- Add social proof elements
+- Use high-quality imagery
+
+### Services Section
+- Use card-based layout
+- Implement hover animations
+- Add reveal animations on scroll
+- Use clear service descriptions
+- Include relevant icons/illustrations
+- Implement proper spacing
+- Add clear CTAs for each service
+
+### Portfolio/Work Section
+- Implement masonry grid layout
+- Add smooth image loading
+- Use hover effects for projects
+- Implement filtering capability
+- Add case study previews
+- Include project descriptions
+- Use modal for project details
+
+### About Section
+- Include team information
+- Add company culture elements
+- Implement timeline animation
+- Use modern layout design
+- Include testimonials carousel
+- Add trust indicators
+- Implement statistics counter
+
+### Contact Section
+- Use modern form design
+- Implement form validation
+- Add loading states
+- Include map integration
+- Add social media links
+- Implement success/error states
+- Use proper input animations
+
+## Performance Optimization
+
+### Loading Optimization
+- Implement lazy loading
+- Use proper image optimization
+- Implement resource hints
+- Use modern image formats
+- Optimize font loading
+- Implement critical CSS
+- Use proper caching strategies
+
+### Core Web Vitals
+- Optimize LCP (Largest Contentful Paint)
+- Minimize CLS (Cumulative Layout Shift)
+- Optimize FID (First Input Delay)
+- Implement proper image dimensions
+- Optimize JavaScript execution
+- Minimize main thread work
+- Implement proper resource loading
+
+### Mobile Optimization
+- Ensure touch-friendly interfaces
+- Optimize tap targets
+- Implement proper viewport settings
+- Use responsive images
+- Optimize for different screen sizes
+- Ensure proper gesture handling
+- Test on various devices
+
+## Code Quality
+
+### Best Practices
+- Follow DRY principle
+- Use proper commenting
+- Implement proper file structure
+- Use consistent naming conventions
+- Follow code style guide
+- Implement error handling
+- Use proper indentation
+
+### Testing
+- Test cross-browser compatibility
+- Ensure mobile responsiveness
+- Test performance metrics
+- Validate HTML/CSS
+- Test accessibility
+- Check loading performance
+- Test all interactive elements
+
+### Development Tools
+- Use modern code editor
+- Implement live reload
+- Use browser dev tools
+- Implement version control
+- Use code formatter
+- Implement linting
+- Use optimization tools
+
+## SEO & Analytics
+
+### SEO Implementation
+- Implement proper meta tags
+- Use semantic HTML
+- Add social media meta tags
+- Implement sitemap
+- Add robots.txt
+- Use proper URL structure
+- Implement schema markup
+
+### Analytics
+- Implement Google Analytics 4
+- Add event tracking
+- Track user interactions
+- Monitor performance metrics
+- Track conversion goals
+- Implement heat mapping
+- Monitor user behavior
+
+## Accessibility
+
+### WCAG Compliance
+- Follow WCAG 2.1 guidelines
+- Implement proper contrast
+- Use proper heading structure
+- Add keyboard navigation
+- Implement focus states
+- Add skip navigation
+- Test with screen readers
+
+## Browser Support
+- Support modern browsers
+- Implement graceful degradation
+- Test on major browsers
+- Add fallback solutions
+- Monitor browser updates
+- Test on different versions
+- Implement feature detection
