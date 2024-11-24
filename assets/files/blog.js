@@ -82,7 +82,7 @@ function displayBlogPosts(posts) {
                 <div class="blog-content">
                     <h3>
                         <a href="${post.url}" target="_blank" rel="noopener noreferrer">
-                            ${post.title}
+                            ${post.title} <i class="ph ph-arrow-square-out"></i>
                         </a>
                     </h3>
                     <div class="blog-meta">${date}</div>
