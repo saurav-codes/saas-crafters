@@ -2393,3 +2393,105 @@ textarea {
     animation: techFloat 6s ease-in-out infinite;
     animation-delay: calc(var(--item-index, 0) * 0.1s);
 }
+
+.response-promise {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin: -0.5rem 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.response-promise i {
+    color: #3b82f6;
+    font-size: 1.2rem;
+}
+
+.response-promise:hover {
+    color: #e2e8f0;
+    transition: color 0.3s ease;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top i {
+    color: #60A5FA;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-4px);
+}
+
+.scroll-to-top:hover i {
+    transform: translateY(-2px);
+    color: #93C5FD;
+}
+
+/* Circular progress indicator */
+.scroll-to-top .scroll-progress {
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        var(--primary) var(--scroll-percent, 0%),
+        transparent var(--scroll-percent, 0%)
+    );
+    mask: radial-gradient(
+        closest-side,
+        transparent 75%,
+        #000 76%,
+        #000 84%,
+        transparent 85%
+    );
+    -webkit-mask: radial-gradient(
+        closest-side,
+        transparent 75%,
+        #000 76%,
+        #000 84%,
+        transparent 85%
+    );
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
